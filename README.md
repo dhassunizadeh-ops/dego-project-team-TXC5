@@ -2,6 +2,7 @@
 
 ## Team Members
 - 73373 - Dariusch Jose Hassunizadeh
+- 70197 - Luca Isaak
 - Teammate 1
 - Teammate 2
 

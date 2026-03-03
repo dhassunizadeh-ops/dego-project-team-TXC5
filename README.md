@@ -4,7 +4,7 @@
 - 73373 - Dariusch Jose Hassunizadeh
 - 70197 - Luca Isaak
 - 73719 - Patrick Bansbach
-- Teammate 2
+- 56730 - Diana Sousa
 
 ## Project Description
 Credit scoring bias analysis for DEGO course.

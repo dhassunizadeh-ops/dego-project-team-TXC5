@@ -78,6 +78,7 @@ NovaCred's credit application dataset contains **intentional data quality issues
 | Completeness | `applicant_info.gender` (hidden, blank strings) | 2 | 0.4% |
 | Consistency | `financials.annual_income` stored as `object` (should be numeric) | all records | N/A |
 | Consistency | `applicant_info.gender` encoded inconsistently: `Male`, `M`, `Female`, `F`, empty | mixed | N/A |
+| Consistency | `applicant_info.date_of_birth` contains multiple incompatible formats (`YYYY-MM-DD`, `MM/DD/YYYY`, `DD-MM-YYYY`) | 357 fail parsing | 71.4% |
 | Validity | Negative `financials.credit_history_months` (min = −10) | 2 records | 0.4% |
 | Validity | Negative `financials.savings_balance` (min = −5,000) | 1 record | 0.2% |
 | Validity | `financials.debt_to_income` > 1.0 (max = 1.85) | detected | N/A |
@@ -168,6 +169,10 @@ Features flagged as **HIGH proxy risk** (correlated with both gender and approva
 | `spending_Insurance` | +0.052 | +0.073 |
 
 These spending categories differ systematically by gender and correlate with approval, potentially encoding gender indirectly in the decision algorithm.
+
+### Geographic Bias Analysis
+
+Chi-squared tests were run between ZIP code and both gender and approval outcome. No significant association was found between ZIP code and approval (p = 0.76), meaning the gender approval gap cannot be explained by geographic confounding. The ZIP vs gender test returned p = 0.0000, but with 195 unique ZIP codes across 498 records all expected cell counts fall below 5, making that result statistically unreliable. Geographic discrimination cannot be definitively ruled out from this dataset, but no redlining pattern is evident.
 
 ---
 

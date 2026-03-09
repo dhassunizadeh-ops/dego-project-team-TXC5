@@ -11,9 +11,12 @@
 | Student ID | Name | Role |
 |---|---|---|
 | 73373 | Dariusch Jose Hassunizadeh | Data Engineer |
-| 70197 | Luca Isaak | Data Scientist |
-| 73719 | Patrick Bansbach | Governance Officer |
-| 56730 | Diana Sousa | Product Lead |
+| 70197 | Luca Isaak | Product Lead |
+| 73719 | Patrick Bansbach | Data Scientist |
+| 56730 | Diana Sousa | Governance Officer |
+
+## Team Members Contribution
+All Team Members contributed equally to the project.
 
 ---
 
@@ -269,7 +272,7 @@ Credit scoring systems fall under **Annex III — High-Risk AI Systems**. NovaCr
 
 ## 6. Video Presentation
 
-> Link / file: *(to be added)*
+> Link / file: *(https://youtu.be/4G6JUpEPzmM)*
 
 ---
 

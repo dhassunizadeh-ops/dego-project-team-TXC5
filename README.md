@@ -1,22 +1,19 @@
-# DEGO Group Project – Team TXC5
+# DEGO Group Project: Team TXC5
 ## Credit Application Governance Analysis | NovaCred
 
 > **Course:** Data Ecosystems and Governance in Organizations (2606) | Nova SBE
-> **Dataset:** `raw_credit_applications.json` — 502 raw credit application records
+> **Dataset:** `raw_credit_applications.json`, 502 raw credit application records
 
 ---
 
 ## Team Members & Roles
 
-| Student ID | Name | Role |
-|---|---|---|
-| 73373 | Dariusch Jose Hassunizadeh | Data Engineer |
-| 70197 | Luca Isaak | Product Lead |
-| 73719 | Patrick Bansbach | Data Scientist |
-| 56730 | Diana Sousa | Governance Officer |
-
-## Team Members Contribution
-All Team Members contributed equally to the project.
+| Student ID | Name | Role | Contribution | % |
+|---|---|---|---|---|
+| 73373 | Dariusch Jose Hassunizadeh | Data Engineer | Data loading, cleaning, and quality assessment (`01_data_quality.ipynb`) | 25% |
+| 70197 | Luca Isaak | Product Lead | Overall project coordination, repository structure, presentation design, and video editing | 25% |
+| 73719 | Patrick Bansbach | Data Scientist | Bias detection, fairness metrics, and proxy discrimination analysis (`02_bias_analysis.ipynb`) | 25% |
+| 56730 | Diana Sousa | Governance Officer | Privacy analysis, GDPR mapping, and governance recommendations (`03-privacy-governance.ipynb`) | 25% |
 
 ---
 
@@ -46,9 +43,9 @@ dego-project-team-TXC5/
 
 NovaCred's credit application dataset contains **intentional data quality issues, statistically significant gender bias, and serious privacy risks**. Our audit identified all major issues across four dimensions. Key headline numbers:
 
-- **DIR = 0.767** — female applicants approved at 76.7% the rate of males, violating the four-fifths rule (threshold: 0.80)
-- **p = 0.000694** — the gender–approval association is statistically significant (χ² = 11.51)
-- **97.4% of records are k=1** — almost every individual is uniquely identifiable via quasi-identifiers alone
+- **DIR = 0.767**: female applicants approved at 76.7% the rate of males, violating the four-fifths rule (threshold: 0.80)
+- **p = 0.000694**: the gender-approval association is statistically significant (χ² = 11.51)
+- **97.4% of records are k=1**: almost every individual is uniquely identifiable via quasi-identifiers alone
 - **6 data quality issue categories** identified and remediated across 500 records
 
 ---
@@ -73,17 +70,17 @@ NovaCred's credit application dataset contains **intentional data quality issues
 | Completeness | `processing_timestamp` missing | 438 | 87.6% |
 | Completeness | `decision.rejection_reason` missing (approved cases) | 292 | 58.4% |
 | Completeness | `decision.approved_amount` / `decision.interest_rate` missing (rejected cases) | 208 | 41.6% |
-| Completeness | `applicant_info.email` — hidden missing (blank strings) | 7 | 1.4% |
+| Completeness | `applicant_info.email` (hidden, blank strings) | 7 | 1.4% |
 | Completeness | `financials.annual_income` missing | 5 | 1.0% |
 | Completeness | `applicant_info.ssn` missing | 4 | 0.8% |
 | Completeness | `applicant_info.ip_address` missing | 4 | 0.8% |
-| Completeness | `applicant_info.date_of_birth` — hidden missing | 4 | 0.8% |
-| Completeness | `applicant_info.gender` — hidden missing | 2 | 0.4% |
-| Consistency | `financials.annual_income` stored as `object` (should be numeric) | all records | — |
-| Consistency | `applicant_info.gender` encoded inconsistently: `Male`, `M`, `Female`, `F`, empty | mixed | — |
+| Completeness | `applicant_info.date_of_birth` (hidden, blank strings) | 4 | 0.8% |
+| Completeness | `applicant_info.gender` (hidden, blank strings) | 2 | 0.4% |
+| Consistency | `financials.annual_income` stored as `object` (should be numeric) | all records | N/A |
+| Consistency | `applicant_info.gender` encoded inconsistently: `Male`, `M`, `Female`, `F`, empty | mixed | N/A |
 | Validity | Negative `financials.credit_history_months` (min = −10) | 2 records | 0.4% |
 | Validity | Negative `financials.savings_balance` (min = −5,000) | 1 record | 0.2% |
-| Validity | `financials.debt_to_income` > 1.0 (max = 1.85) | detected | — |
+| Validity | `financials.debt_to_income` > 1.0 (max = 1.85) | detected | N/A |
 | Validity | Malformed email addresses (format check) | 11 records | 2.2% |
 
 > **Note on accuracy:** Direct accuracy verification against a ground truth is not possible with this dataset. Plausibility checks (range bounds, format rules) serve as accuracy proxies.
@@ -115,7 +112,7 @@ NovaCred's credit application dataset contains **intentional data quality issues
 - Female applicants: **251** | Male applicants: **247**
 - Overall approval rate: **58.4%**
 
-### Disparate Impact Ratio (DIR) — Four-Fifths Rule
+### Disparate Impact Ratio (DIR): Four-Fifths Rule
 
 | Group | Approval Rate | Approved | Total |
 |---|---|---|---|
@@ -146,7 +143,7 @@ The `algorithm_risk_score` rejection reason accounts for the majority of denials
 
 ### Bias Persists Across Income Brackets
 
-Female approval rates are lower in every income bracket — the disparity is not explained by income differences alone.
+Female approval rates are lower in every income bracket. The disparity is not explained by income differences alone.
 
 ### Financial Profiles Are Comparable
 
@@ -224,7 +221,7 @@ These spending categories differ systematically by gender and correlate with app
 
 ### EU AI Act Classification
 
-Credit scoring systems fall under **Annex III — High-Risk AI Systems**. NovaCred must ensure:
+Credit scoring systems fall under **Annex III (High-Risk AI Systems)**. NovaCred must ensure:
 - Bias testing before deployment (Art. 10)
 - Human oversight mechanisms (Art. 14)
 - Transparency and explainability of decisions (Art. 13)
